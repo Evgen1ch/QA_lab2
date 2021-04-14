@@ -8,24 +8,19 @@ namespace QA_lab2
     abstract class DemoWebShopPage
     {
         protected IWebDriver _driver;
-        protected IWebElement LogIn => _driver.FindElement(By.ClassName("ico-login"));
 
-        protected IWebElement LogOut => _driver.FindElement(By.ClassName("ico-logout"));
-
-        protected IWebElement Cart => _driver.FindElement(By.ClassName("ico-cart"));
-
-        protected DemoWebShopPage(IWebDriver driver, string urlMatch)
+        protected DemoWebShopPage(IWebDriver driver, string pageLocalPath)
         {
-            if (!driver.Url.Contains(urlMatch))
-                throw new ArgumentException($"Url is wrong. Expected match: {urlMatch}. Actual URL: {_driver.Url}");
+            Uri uri = new Uri(driver.Url);
+            string localPath = uri.LocalPath;
+
+            if (localPath != pageLocalPath)
+            {
+                throw new ArgumentException($"Expected local path is {pageLocalPath}, but actual is {localPath}");
+            }
 
             _driver = driver;
         }
-
-        public DemoWebShopPage GoToCart()
-        {
-            Cart.Click();
-            return new CartPage(_driver);
-        }
+        
     }
 }

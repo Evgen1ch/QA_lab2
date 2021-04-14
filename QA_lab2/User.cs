@@ -28,5 +28,10 @@ namespace QA_lab2
 
             return new User(firstName, lastName, email, password);
         }
+
+        public User Copy()
+        {
+            return new User(FirstName, LastName, Email, Password);
+        }
     }
 }

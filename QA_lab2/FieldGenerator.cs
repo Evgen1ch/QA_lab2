@@ -10,7 +10,7 @@ namespace QA_lab2
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            int length = random.Next(1, 9);
+            int length = random.Next(3, 9);
             for(int i = 0; i < length; i++)
             {
                 sb.Append((char)random.Next(33, 127));
@@ -23,7 +23,7 @@ namespace QA_lab2
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            int length = random.Next(1, 9);
+            int length = random.Next(3, 9);
             for (int i = 0; i < length; i++)
             {
                 sb.Append((char)random.Next(97, 123));

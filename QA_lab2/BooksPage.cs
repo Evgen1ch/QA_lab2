@@ -7,10 +7,12 @@ namespace QA_lab2
 {
     class BooksPage: DemoWebShopPage
     {
-        private static string URL_MATCH = "books";
+        private static string URL_MATCH = "/books";
 
         private IWebElement FirstBook => _driver.FindElement(By.ClassName("item-box"))
             .FindElement(By.CssSelector(".button-2.product-box-add-to-cart-button"));
+
+        public IWebElement Cart => _driver.FindElement(By.ClassName("ico-cart"));
 
         public BooksPage(IWebDriver driver): base(driver, URL_MATCH) { }
 
@@ -18,6 +20,12 @@ namespace QA_lab2
         {
             FirstBook.Click();
             return this;
+        }
+
+        public CartPage GoToCart()
+        {
+            Cart.Click();
+            return new CartPage(_driver);
         }
     }
 }

@@ -7,11 +7,9 @@ using OpenQA.Selenium;
 
 namespace QA_lab2
 {
-    class RegistrationPage
+    class RegistrationPage: DemoWebShopPage
     {
-        private static string URL_MATCH = "register";
-
-        private readonly IWebDriver _driver;
+        private static string URL_MATCH = "/register";
 
         private IWebElement FirstName => _driver.FindElement(By.Id("FirstName"));
 
@@ -25,12 +23,7 @@ namespace QA_lab2
 
         private IWebElement SubmitBtn => _driver.FindElement(By.Id("register-button"));
 
-        public RegistrationPage(IWebDriver driver)
-        {
-            if (!driver.Url.Contains(URL_MATCH))
-                throw new ArgumentException("The page you`re looking for is not a registration page");
-            _driver = driver;
-        }
+        public RegistrationPage(IWebDriver driver) : base(driver, URL_MATCH) { } 
 
         //public RegistrationPage TypeFirstName(string firstName)
         //{
@@ -78,50 +71,41 @@ namespace QA_lab2
             SubmitBtn.Click();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="user">Valid User</param>
-        /// <returns>
-        /// <see cref="RegisterResultPage"/> object
-        /// </returns>
         public RegisterResultPage RegisterUserSuccess(User user)
         {
             RegisterUser(user);
             return new RegisterResultPage(_driver);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="user">Invalid User</param>
-        /// <returns>
-        ///<see cref="RegistrationPage"/> object
-        /// </returns>
         public RegistrationPage RegisterUserFail(User user)
         {
             RegisterUser(user);
             return new RegistrationPage(_driver);
         }
 
+        //Only if field is empty
         public RegistrationPage CheckFirstNameErrorMessage()
         {
             Assert.Pass();
             return this;
         }
 
+        //Only if field is empty
         public RegistrationPage CheckLastNameErrorMessage()
         {
             Assert.Pass();
             return this;
         }
 
+        //Email is illegal or empty
         public RegistrationPage CheckEmailErrorMessage()
         {
             Assert.Pass();
             return this;
         }
 
+
+        //If password is shorter than 6 characters
         public RegistrationPage CheckPasswordErrorMessage()
         {
             var errorSpan = _driver.FindElement(By.XPath("//span[@data-valmsg-for='Password']/span"));
@@ -129,6 +113,7 @@ namespace QA_lab2
             return this;
         }
 
+        //If empty or not equal to password
         public RegistrationPage CheckPasswordConfirmationErrorMessage()
         {
             Assert.Pass();

@@ -5,22 +5,13 @@ using OpenQA.Selenium;
 
 namespace QA_lab2
 {
-    class RegisterResultPage
+    class RegisterResultPage: DemoWebShopPage
     {
-        private static string URL_MATCH = "registerresult";
+        private static string URL_MATCH = "/registerresult/1";
 
-        private readonly IWebDriver _driver;
         private IWebElement ContinueBtn => _driver.FindElement(By.ClassName("register-continue-button"));
 
-        public RegisterResultPage(IWebDriver driver)
-        {
-            if(!driver.Url.Contains(URL_MATCH))
-            {
-                throw new ArgumentException("Page is not registration results page");
-            }
-
-            _driver = driver;
-        }
+        public RegisterResultPage(IWebDriver driver) :base(driver, URL_MATCH) { }
 
         public MainPage Continue()
         {

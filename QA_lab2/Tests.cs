@@ -18,11 +18,24 @@ namespace QA_lab2
         private ChromeDriver _driver;
         private string _baseUrl;
 
+        private User _registerUser;
+        private User _loginUser;
+        private User _logoutUser;
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            _registerUser = User.CreateValidUser();
+            _loginUser = User.CreateValidUser();
+            _logoutUser = User.CreateValidUser();
+        }
+
         [SetUp]
         public void Setup()
         {
             _driver = new ChromeDriver();
             _baseUrl = "http://demowebshop.tricentis.com";
+            _driver.Manage().Window.Maximize();
         }
 
         [TearDown]
@@ -31,68 +44,101 @@ namespace QA_lab2
             _driver.Quit();
         }
 
-        [Test, Order(1)]
+        [Test]
         public void RegistrationSuccessTest()
         {
-            _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(_baseUrl + "/register");
-            User user = User.CreateValidUser();
-
+            
             RegistrationPage registrationPage = new RegistrationPage(_driver);
             registrationPage
-                .RegisterUserSuccess(user)
-                .Continue();
-
-            //todo logout
+                .RegisterUserSuccess(_registerUser)
+                .Continue()
+                .CheckEmailMatch(_registerUser.Email);
+            //TODO этот чек как бы нужен, но не совсем, потому что переход на страницу результата регистрации ”∆≈ я¬Ћя≈“—я подтверждением регистрации
         }
 
-        [Test, Order(2)]
+        [Test]
         public void RegistrationFailTest()
         {
-            _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(_baseUrl + "/register");
-            User user = User.CreateValidUser();
+            User user = _registerUser.Copy();
             user.Password = "1";
 
             RegistrationPage registrationPage = new RegistrationPage(_driver);
             registrationPage
                 .RegisterUserFail(user)
                 .CheckPasswordErrorMessage();
-
-            //todo logout
         }
 
-        [Test, Order(3)]
+        [Test]
         public void AddItemToCartTest()
         {
             string expectedItem = "Computing and Internet";
-            _driver.Manage().Window.Maximize();
+
             _driver.Navigate().GoToUrl(_baseUrl);
 
             MainPage mainPage = new MainPage(_driver);
-            ((CartPage) mainPage
-                    .GoToBooksPage()
-                    .GetBook()
-                    .GoToCart())
+            mainPage
+                .GoToBooksPage()
+                .GetBook()
+                .GoToCart()
                 .CheckProductInCart(expectedItem);
         }
 
-        [Test, Order(4)]
+        [Test]
         public void LoginSuccessTest()
         {
-            _driver.Manage().Window.Maximize();
+            //register
+            //log in
             _driver.Navigate().GoToUrl(_baseUrl);
-            Assert.Pass();
+
+            MainPage mainPage = new MainPage(_driver);
+            var afterRegister = mainPage
+                .GoToRegistration()
+                .RegisterUserSuccess(_loginUser)
+                .Continue()
+                .ClickLogOut();
+
+            afterRegister
+                .GoToLogin()
+                .TypeEmail(_loginUser.Email)
+                .TypePassword(_loginUser.Password)
+                .LoginSuccess()
+                .CheckEmailMatch(_loginUser.Email);
         }
 
+        [Test]
         public void LoginFailTest()
         {
-            Assert.Pass();
+            string email = _loginUser.Email;
+            string password = "a";
+            _driver.Navigate().GoToUrl(_baseUrl);
+
+            MainPage mainPage = new MainPage(_driver);
+            mainPage
+                .GoToLogin()
+                .TypeEmail(email)
+                .TypePassword(password)
+                .LoginFail()
+                .CheckErrorMessage();
         }
 
+        [Test]
         public void LogoutTest()
         {
-            Assert.Pass();
+            //register
+            //log out
+            _driver.Navigate().GoToUrl(_baseUrl);
+
+            MainPage mainPage = new MainPage(_driver);
+            var mainPageAfterRegister = mainPage
+                .GoToRegistration()
+                .RegisterUserSuccess(_logoutUser)
+                .Continue();
+
+            mainPageAfterRegister
+                .ClickLogOut()
+                .CheckLogoutSuccess();
         }
     }
 }
