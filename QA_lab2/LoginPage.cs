@@ -8,7 +8,7 @@ namespace QA_lab2
 {
     class LoginPage: DemoWebShopPage
     {
-        private static string URL_MATCH = "/login";
+        private static string LocalPath = "/login";
 
         private IWebElement Email => _driver.FindElement(By.Id("Email"));
 
@@ -18,7 +18,7 @@ namespace QA_lab2
 
         private IWebElement ErrorMessage =>
             _driver.FindElement(By.XPath("//div[@class='validation-summary-errors']/span"));
-        public LoginPage(IWebDriver driver) : base(driver, URL_MATCH) { }
+        public LoginPage(IWebDriver driver) : base(driver, LocalPath) { }
 
         public LoginPage TypeEmail(string email)
         {

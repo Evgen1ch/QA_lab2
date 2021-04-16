@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QA_lab2.BooksPage">
+    <Position X="4.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAAAQA=</HashCode>
+      <FileName>BooksPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.CartPage">
+    <Position X="8.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAABAAA=</HashCode>
+      <FileName>CartPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.DemoWebShopPage">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DemoWebShopPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.DemoWebShopTests">
+    <Position X="14.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAECAAAABAAAAAAjAABAAAQAQACAIIAAAAAAAA=</HashCode>
+      <FileName>Tests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.FieldGenerator">
+    <Position X="12.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>FieldGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.LoginPage">
+    <Position X="6.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAACAAAgBAEAAAAAAAACAAABACAAAAAQAAAAA=</HashCode>
+      <FileName>LoginPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.MainPage">
+    <Position X="10.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgBAAAAAkCABCBABAAAAAAIAAGA=</HashCode>
+      <FileName>MainPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.RegisterResultPage">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegisterResultPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.RegistrationPage">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAAiAAAABAAAAAAAAAACAgAAAGAAAAAAAAAAg=</HashCode>
+      <FileName>RegistrationPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QA_lab2.User">
+    <Position X="13" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAw=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

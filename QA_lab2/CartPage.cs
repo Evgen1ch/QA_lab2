@@ -9,15 +9,15 @@ namespace QA_lab2
 {
     class CartPage: DemoWebShopPage
     {
-        private static string URL_MATCH = "/cart";
+        private static string LocalPath = "/cart";
 
         private IWebElement CartTable => _driver.FindElement(By.ClassName("cart"));
 
-        public CartPage(IWebDriver driver): base(driver, URL_MATCH) { }
+        public CartPage(IWebDriver driver): base(driver, LocalPath) { }
 
         public CartPage CheckProductInCart(string productName)
         {
-            var elements = new WebDriverWait(_driver, TimeSpan.FromSeconds(5))
+            var elements = new WebDriverWait(_driver, TimeSpan.FromSeconds(10))
                 .Until(drv => drv
                     .FindElement(By.ClassName("cart"))
                     .FindElements(By.ClassName("product"))

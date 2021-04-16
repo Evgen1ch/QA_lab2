@@ -9,7 +9,7 @@ namespace QA_lab2
     class MainPage: DemoWebShopPage
     {
         
-        private static string URL_MATCH = "/";
+        private static string LocalPath = "/";
 
         private IWebElement Register => _driver.FindElement(By.LinkText("Register"));
 
@@ -21,7 +21,7 @@ namespace QA_lab2
 
         private IWebElement LogOut => _driver.FindElement(By.ClassName("ico-logout"));
 
-        public MainPage(IWebDriver driver): base(driver, URL_MATCH) { }
+        public MainPage(IWebDriver driver): base(driver, LocalPath) { }
 
         public BooksPage GoToBooksPage()
         {
