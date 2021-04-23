@@ -1,7 +1,4 @@
-using System;
-using Newtonsoft.Json.Serialization;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 //------Tests------
@@ -54,7 +51,6 @@ namespace QA_lab2
                 .RegisterUserSuccess(_registerUser)
                 .Continue()
                 .CheckEmailMatch(_registerUser.Email);
-            //TODO этот чек как бы нужен, но не совсем, потому что переход на страницу результата регистрации ”∆≈ я¬Ћя≈“—я подтверждением регистрации
         }
 
         [Test]

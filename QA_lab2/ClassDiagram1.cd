@@ -22,14 +22,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="QA_lab2.DemoWebShopTests">
-    <Position X="14.75" Y="0.5" Width="1.75" />
+    <Position X="12.75" Y="3.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAIAAECAAAABAAAAAAjAABAAAQAQACAIIAAAAAAAA=</HashCode>
       <FileName>Tests.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="QA_lab2.FieldGenerator">
-    <Position X="12.5" Y="0.5" Width="2" />
+    <Position X="7.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>FieldGenerator.cs</FileName>
@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="QA_lab2.User">
-    <Position X="13" Y="2.25" Width="1.5" />
+    <Position X="13" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAw=</HashCode>
       <FileName>User.cs</FileName>
